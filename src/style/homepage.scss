@@ -1,0 +1,47 @@
+@import '__variable.scss';
+.furniture_home {
+    &__banner {
+        height: 910px;
+        div {
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
+    }
+    &__title {
+        color: $title;
+    }
+    &__product {
+        &__title {
+            color: $wood;
+        }
+        &__price {
+            color: $price;
+            &__discount {
+                text-decoration: line-through;
+                color: $discount;
+            }
+        }
+    }
+    &__demo {
+        width: 200px;
+        height: 300px;
+        border-radius: 20px;
+        border: 0.1px solid $border;
+        &__title {
+            color: $light;
+        }
+    }
+    &__service {
+        &__title {
+            color: $title;
+        }
+        &__image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+            height: 200px;
+        }
+    }
+}

@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Section from './Route/Section';
+import NavBar from './layout/NavBar';
+import Footer from './layout/Footer';
+import 'antd/dist/antd.css';
+import { Divider } from 'antd';
+import Wrapper from './Component/Wrapper';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <NavBar className=""/>
+        <Section/>
+        <Footer className="mt200 footer-stick"/>
+    </Router>
   );
 }
 

@@ -1,0 +1,15 @@
+@import "__variable.scss";
+.furniture_header {
+    &__nav-wrapper {
+        height: 60px;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: cover; /* Resize the background image to cover the entire container */
+    }
+    &__nav-link {
+        list-style: none;
+        h5 {
+            color: $light;
+        }
+    }
+}
