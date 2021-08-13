@@ -12,9 +12,8 @@ const Product = props => {
     [currentBranch, setCurrentBranch] = useState([]);
 
     const onFilterChange = e => {
-        console.log(e);
         setFilterSelected({
-            tag: currentBranch.map(item => item.key).includes(e.keys[0]) ? `${tagResult.title} -> ${e.title}` : e.title,
+            tag: e.path
         });   
     }
 

@@ -6,6 +6,7 @@ const ProductItem = props => {
     const { Meta } = Card
     return (
         <Card
+            {...props}
             className={clsx(props.className)}
             hoverable
             style={{ width: 240 }}

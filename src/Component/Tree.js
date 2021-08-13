@@ -1,6 +1,6 @@
 import { Tree as AntTree } from "antd";
 import { useEffect, useState } from "react";
-import {generateDataToTree, getNodePath, hasPath} from "../Util/functions";
+import {generateDataToTree, getNodePath, hasPath, endingAt} from "../Util/functions";
 
 const Tree = ({data, onSelectors, onExpanding, ...rest}) => {
     const [dataTree, setDataTree] = useState([]),
@@ -9,41 +9,37 @@ const Tree = ({data, onSelectors, onExpanding, ...rest}) => {
 
     useEffect(() => {
         let newData = generateDataToTree(data);
-        
         setDataTree([...newData]);
     }, [data]);
 
     useEffect(() => {
         setCurrentTree({
             key: 0,
-            childNode: generateDataToTree(data)
+            children: generateDataToTree(data)
         })
     }, [data])
     
-    useEffect(async () => {   
-        new Promise((resolve, reject) => {
-            resolve(hasPath(currentTree, {key: 1.11}, []));   
-        })
-    }, [currentTree])
-
     const generateDataToTree = data => {
         const treeModel = data.length > 0 && data.map(item => 
             ({
                 title: item.title,
                 key: item.key,
-                children: !!item.select && generateDataToTree(item.select)
+                children: !!item.select && generateDataToTree(item.select) || []
             })
         );
         return treeModel;
     }
 
-    const onSelect = (selectedKeys, info) => {
+    const onSelect = async (selectedKeys, info) => {
+        console.log(selectedKeys);
+        const pathResult = await Promise.all([endingAt(currentTree, selectedKeys[0]).next().value]);
         return onSelectors({
             title: info.node.title,
             keys: selectedKeys,
             tabInfo: info,
+            path: pathResult[0],
             treeDataModel: currentTree
-        })
+        }) 
     }
     
     const onExpand = (expandKey, info)=> {
@@ -54,7 +50,7 @@ const Tree = ({data, onSelectors, onExpanding, ...rest}) => {
             treeDataModel: currentTree
         })
     }
-
+    console.log(dataTree);
     return (
         <AntTree {...rest} 
             onExpand={onExpand} 
