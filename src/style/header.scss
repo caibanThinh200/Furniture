@@ -1,6 +1,7 @@
 @import "__variable.scss";
 .furniture_header {
     &__nav-wrapper {
+        z-index: 1;
         height: 60px;
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -8,8 +9,20 @@
     }
     &__nav-link {
         list-style: none;
+        font-family: 'Poppins', sans-serif;
         h5 {
             color: $light;
         }
+        &--logo {
+            font-weight: 700;
+            font-size: 4em;
+            text-transform: uppercase;
+            letter-spacing: 2;
+        }
+    }
+    &__nav-link h5:hover {
+        background-color: $light;
+        color: $dark;
+        transition: all 0.5s;
     }
 }

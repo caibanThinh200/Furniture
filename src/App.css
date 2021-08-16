@@ -10,6 +10,14 @@
     margin-top: 150px;
 }
 
+.ml-50 {
+  margin-left: 50%;
+}
+
+.ml-40 {
+  margin-left: 40%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

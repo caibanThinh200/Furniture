@@ -11,7 +11,7 @@ import Wrapper from './Component/Wrapper';
 function App() {
   return (
     <Router>
-        <NavBar className=""/>
+        <NavBar/>
         <Section/>
         <Footer className="mt200 footer-stick"/>
     </Router>

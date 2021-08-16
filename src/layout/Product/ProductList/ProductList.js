@@ -1,4 +1,4 @@
-import { Tag } from "antd";
+import { Pagination, Tag } from "antd";
 import { Fragment, useEffect, useState } from "react";
 import Wrapper from "../../../Component/Wrapper";
 import TAG_DEFINE from "../../../constant/define";
@@ -10,7 +10,7 @@ const ProductList = props => {
     useEffect(() => {
         setFilterResult(props.filterResult);
     }, [props.filterResult])
-    console.log(filterResult);
+
     return (
         <Wrapper className="row"> 
             {
@@ -28,6 +28,14 @@ const ProductList = props => {
                     <ProductItem key={index} className="col-3 mr-5 mb-5"/>
                 )
             }
+            <Wrapper className="ml-5">
+                {
+                    props.pagination && 
+                        <Pagination 
+                            defaultCurrent={6} 
+                            total={500}/>
+                }
+            </Wrapper>
         </Wrapper>
     )
 }

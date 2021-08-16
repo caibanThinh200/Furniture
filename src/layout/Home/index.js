@@ -10,7 +10,7 @@ const Homepage = props => {
     return (
         <Wrapper>
             <Banner className=""/>
-            <Wrapper className="container w-100 text-center mt-5">
+            <Wrapper className="container w-100 text-center">
                 <Divider className="mt-5 mb-5"></Divider>
                 <h3 className="furniture_home__title">
                     {TAG_DEFINE.PAGE.HOMEPAGE.GUARANTEE}
@@ -47,7 +47,6 @@ const Homepage = props => {
                 <ServiceIntro title={TAG_DEFINE.PAGE.HOMEPAGE.SERVICES_INTRO.title}/>
             </Wrapper>
         </Wrapper>
-        
     )
 }
 

@@ -1,6 +1,11 @@
 const TAG_DEFINE = {
     PAGE: {
         HEADER: {
+            LOGO: {
+                title: "AZP",
+                bold: true,
+                path: "/"
+            },
             HOMEPAGE: {
                 title: "Trang chủ",
                 path: "/"
@@ -99,6 +104,9 @@ const TAG_DEFINE = {
     },
     CATEGORIES: {
         title: "Danh mục"
+    },
+    CART: {
+        title: "Giỏ hàng"
     }
 }
 

@@ -2,11 +2,15 @@
 .furniture_home {
     &__banner {
         height: 910px;
+        min-height: 400px;
         div {
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
             background-size: cover; /* Resize the background image to cover the entire container */
         }
+    }
+    &__image {
+        height: 1200px;
     }
     &__title {
         color: $title;

@@ -1,4 +1,4 @@
-import { Breadcrumb, Layout as AntLayout } from "antd";
+import { Breadcrumb, Layout as AntLayout, PageHeader } from "antd";
 import Wrapper from "./Wrapper";
 import "../style/component/PageLayout.scss"
 import clsx from "clsx";
@@ -7,8 +7,9 @@ import * as Func from "../Util/functions"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Layout = ({sider, children, className,breadcrumb, ...rest})=> {
-    const {Content, Sider} = AntLayout;
+const Layout = ({sider, children, className, breadcrumb, title, subTitle, ...rest})=> {
+    const {Content, Sider, Header} = AntLayout;
+
     const getCurrentBreadCrumpPath = () => {
         let paths = [{
             href: "/",
@@ -29,7 +30,7 @@ const Layout = ({sider, children, className,breadcrumb, ...rest})=> {
     }
 
     return (
-        <Wrapper className={clsx(className)} {...rest}>
+        <Wrapper className={clsx(className, "mt-5 container mb-5")} {...rest}>
             {
                 breadcrumb && <Breadcrumb className="mb-5 col-12">
                     {
@@ -44,14 +45,22 @@ const Layout = ({sider, children, className,breadcrumb, ...rest})=> {
                     }
                 </Breadcrumb>
             }
-            <AntLayout className="row furniture_page-layout">
+            <AntLayout className="row furniture_page-layout p-5">
+                    <Wrapper className="justify-content-center w-100 mb-5">
+                        {
+                            title && <span className={clsx(sider ? "ml-50" : "ml-40","h1 w-100 font-weight-bold furniture_page-layout__title")}>
+                                {title}
+                            </span>
+                        }
+                    </Wrapper>
+                
                 {
                    sider && <Sider theme="light" className="p-4 mr-5">
                         {sider}
                     </Sider>
                 }
                 {
-                    <Content className="p-5 ml-5">
+                    <Content className="p-3 ml-5">
                         {children}
                     </Content>
                 }
@@ -59,7 +68,6 @@ const Layout = ({sider, children, className,breadcrumb, ...rest})=> {
         </Wrapper>
         
     )
-
 }
 
 export default Layout;

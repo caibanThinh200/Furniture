@@ -5,11 +5,7 @@ export const generateDataToTree = (data, isRoot) => {
     return {
       key: item.key || 0,
       title: item.title || "",
-      childNode:
-        (item.select &&
-          item.select.length > 0 &&
-          generateDataToTree(item.select, false)) ||
-        [],
+      childNode: (item.select && item.select.length > 0 && generateDataToTree(item.select, false)) || []
     };
   });
   return newTree;

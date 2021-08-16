@@ -5,6 +5,7 @@ import Categories from "./Categories";
 import "../../style/product.scss"
 import clsx from "clsx";
 import ProductList from "./ProductList/ProductList";
+import TAG_DEFINE from "../../constant/define";
 
 const Product = props => {
     const [filterSelected, setFilterSelected] = useState({}),
@@ -45,16 +46,16 @@ const Product = props => {
     }
 
     return (
-        <Wrapper className={clsx("mt-5 container", props.className)}>
+        <Wrapper className={clsx(props.className)}>
             <PageLayout
-                className="ml-5 container"
                 sider={<Categories 
                         onExpandChange={onExpandChange} 
                         onFilterChange={onFilterChange}
                     />}
+                title={TAG_DEFINE.PRODUCT.title}
                 breadcrumb
             >
-                <ProductList tagResult={tagResult} filterResult={filterSelected}/>
+                <ProductList pagination tagResult={tagResult} filterResult={filterSelected}/>
             </PageLayout>
         </Wrapper>
     )
